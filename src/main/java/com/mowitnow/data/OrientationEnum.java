@@ -1,4 +1,4 @@
-package com.mowitnow.util;
+package com.mowitnow.data;
 
 public enum OrientationEnum {
     N ("North"),

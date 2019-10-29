@@ -1,9 +1,6 @@
 package com.mowitnow.objects;
 
-import com.mowitnow.util.ActionEnum;
-import com.mowitnow.util.OrientationEnum;
-
-import java.util.List;
+import com.mowitnow.data.OrientationEnum;
 
 public class Mower {
     private int positionAxisX;

@@ -2,9 +2,9 @@ package com.mowitnow;
 
 import com.mowitnow.objects.Field;
 import com.mowitnow.objects.Mower;
-import com.mowitnow.util.ActionEnum;
+import com.mowitnow.data.ActionEnum;
 import com.mowitnow.util.FileReader;
-import com.mowitnow.util.OrientationEnum;
+import com.mowitnow.data.OrientationEnum;
 
 import java.util.ArrayList;
 import java.util.List;
