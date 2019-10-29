@@ -25,9 +25,16 @@ public class MowItNowApp {
         List<ActionEnum> actions = parse(lines.get(2));
         Mower mower = new Mower(Integer.parseInt(mowerPosition[0]),
                 Integer.parseInt(mowerPosition[1]),
-                OrientationEnum.parse(mowerPosition[2]),
-                actions);
+                OrientationEnum.parse(mowerPosition[2]));
 
+        MowerAction mowerAction = new MowerAction(mower, field);
+
+        for(ActionEnum action : actions) {
+            System.out.println(mower);
+            mowerAction.analyseAction(action);
+        }
+
+        System.out.println(mower);
     }
 
 

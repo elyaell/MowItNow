@@ -6,7 +6,7 @@ public enum OrientationEnum {
     E ("East"),
     W ("West");
 
-    String orientation;
+    private String orientation;
 
     OrientationEnum(String orientation) {
         this.orientation = orientation;
