@@ -15,4 +15,13 @@ public enum OrientationEnum {
     public String getOrientation() {
         return this.orientation;
     }
+
+    public static OrientationEnum parse(String orientation) {
+        for (OrientationEnum o : OrientationEnum.values()) {
+            if (o.name().equals(orientation)) {
+                return o;
+            }
+        }
+        return null;
+    }
 }

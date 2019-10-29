@@ -1,4 +1,4 @@
-package com.mowitnow.object;
+package com.mowitnow.objects;
 
 import com.mowitnow.util.ActionEnum;
 import com.mowitnow.util.OrientationEnum;
@@ -16,5 +16,15 @@ public class Mower {
         this.positionAxisY = axisY;
         this.orientation = orientation;
         this.actions = actions;
+    }
+
+    @Override
+    public String toString() {
+        return "Mower {" +
+                "positionAxisX = " + positionAxisX +
+                ", positionAxisY = " + positionAxisY +
+                ", orientation = " + orientation +
+                ", actions = " + actions.toString() +
+                '}';
     }
 }
