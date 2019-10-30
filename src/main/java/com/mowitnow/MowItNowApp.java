@@ -13,7 +13,7 @@ public class MowItNowApp {
 
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
-        String filename = "C:\\Users\\Olivia\\Documents\\MowItNow\\src\\main\\resources\\mower_1.txt";
+        String filename = "mower_2.txt";
         List<String> lines = fileReader.loadFile(filename);
 
         // Field creation

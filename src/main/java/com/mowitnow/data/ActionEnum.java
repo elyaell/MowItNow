@@ -11,9 +11,18 @@ public enum ActionEnum {
         this.action = action;
     }
 
-    public static ActionEnum parse(char position) {
+    public String getAction() {
+        return this.action;
+    }
+
+    /**
+     * Transform the char with the action in the ActionEnum type
+     * @param action the action
+     * @return {@link ActionEnum}
+     */
+    public static ActionEnum parse(char action) {
         for (ActionEnum e : ActionEnum.values()) {
-            if (e.name().equals(Character.toString(position))) {
+            if (e.name().equals(Character.toString(action))) {
                 return e;
             }
         }
@@ -21,9 +30,9 @@ public enum ActionEnum {
     }
 
     /**
-     * Return true if action is different than A
+     * Return true if action is different than A (thus is a rotation)
      * @param action action instructed
-     * @return
+     * @return if the action is a rotation
      */
     public static boolean isRotation(ActionEnum action) {
         return !action.equals(A);
@@ -36,6 +45,7 @@ public enum ActionEnum {
      * @return new position
      */
     public static OrientationEnum next(OrientationEnum orientation, ActionEnum action) {
+        if (action.equals(A)) return null;
         if (orientation.equals(OrientationEnum.N)) {
             if (action.equals(D)) return OrientationEnum.E;
             if (action.equals(G)) return OrientationEnum.W;
@@ -54,7 +64,4 @@ public enum ActionEnum {
         return null;
     }
 
-    public String getAction() {
-        return this.action;
-    }
 }

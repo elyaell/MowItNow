@@ -1,19 +1,23 @@
 package com.mowitnow.util;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-class FileReaderTest {
+@RunWith(JUnit4.class)
+public class FileReaderTest {
 
-    FileReader fileReader = new FileReader();
+    private FileReader fileReader = new FileReader();
 
     @Test
-    void testLoadFile() {
-        String filename = "C:\\Users\\Olivia\\Documents\\MowItNow\\src\\main\\resources\\mower_1.txt";
+    public void testLoadFile() {
+        String filename = "mower_1.txt";
         List<String> lines = fileReader.loadFile(filename);
         assertEquals("[5 5, 1 2 N, GAGAGAGAA]", lines.toString());
     }
+
 }

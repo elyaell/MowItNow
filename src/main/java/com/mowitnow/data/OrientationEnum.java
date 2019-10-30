@@ -16,6 +16,11 @@ public enum OrientationEnum {
         return this.orientation;
     }
 
+    /**
+     * Transform the string with the orientation in the OrientationEnum type
+     * @param orientation the orientation
+     * @return {@link OrientationEnum}
+     */
     public static OrientationEnum parse(String orientation) {
         for (OrientationEnum o : OrientationEnum.values()) {
             if (o.name().equals(orientation)) {
