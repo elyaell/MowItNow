@@ -1,5 +1,7 @@
 package com.mowitnow.data;
 
+import com.mowitnow.exception.MowItNowException;
+
 public enum OrientationEnum {
     N ("North"),
     S ("South"),
@@ -21,12 +23,12 @@ public enum OrientationEnum {
      * @param orientation the orientation
      * @return {@link OrientationEnum}
      */
-    public static OrientationEnum parse(String orientation) {
+    public static OrientationEnum parse(String orientation) throws MowItNowException {
         for (OrientationEnum o : OrientationEnum.values()) {
             if (o.name().equals(orientation)) {
                 return o;
             }
         }
-        return null;
+        throw new MowItNowException("Orientation " + orientation + " does not exist");
     }
 }

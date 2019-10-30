@@ -1,6 +1,7 @@
 package com.mowitnow.objects;
 
 import com.mowitnow.data.OrientationEnum;
+import com.mowitnow.exception.MowItNowException;
 
 public class Mower {
     private int positionAxisX;
@@ -11,6 +12,12 @@ public class Mower {
         this.positionAxisX = axisX;
         this.positionAxisY = axisY;
         this.orientation = orientation;
+    }
+
+    public Mower(String axisX, String axisY, String orientation) throws MowItNowException {
+        this.positionAxisX = Integer.parseInt(axisX);
+        this.positionAxisY = Integer.parseInt(axisY);
+        this.orientation = OrientationEnum.parse(orientation);
     }
 
     public int getPositionAxisX() {
@@ -27,6 +34,14 @@ public class Mower {
 
     public void setPositionAxisY(int positionAxisY) {
         this.positionAxisY = positionAxisY;
+    }
+
+    public OrientationEnum getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(OrientationEnum orientation) {
+        this.orientation = orientation;
     }
 
     /**
@@ -57,20 +72,8 @@ public class Mower {
         this.positionAxisY--;
     }
 
-    public OrientationEnum getOrientation() {
-        return orientation;
-    }
-
-    public void setOrientation(OrientationEnum orientation) {
-        this.orientation = orientation;
-    }
-
     @Override
     public String toString() {
-        return "Mower {" +
-                "positionAxisX = " + positionAxisX +
-                ", positionAxisY = " + positionAxisY +
-                ", orientation = " + orientation +
-                '}';
+        return "(" + this.positionAxisX + " " + this.positionAxisY + " " + this.orientation + ")";
     }
 }

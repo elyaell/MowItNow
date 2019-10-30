@@ -1,29 +1,23 @@
-package com.mowitnow;
+package com.mowitnow.service;
 
 import com.mowitnow.data.ActionEnum;
 import com.mowitnow.data.OrientationEnum;
 import com.mowitnow.objects.Field;
 import com.mowitnow.objects.Mower;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class MowerAction {
-    private final static Logger LOG = Logger.getLogger(MowerAction.class);
+    private final Logger LOG = LogManager.getLogger(MowerAction.class);
 
     private Mower mower;
     private Field field;
-    private List<ActionEnum> actions;
 
     public MowerAction(Mower mower, Field field) {
         this.mower = mower;
         this.field = field;
-    }
-
-    public MowerAction(Mower mower, Field field, List<ActionEnum> actions) {
-        this.mower = mower;
-        this.field = field;
-        this.actions = actions;
     }
 
     /**
@@ -70,11 +64,16 @@ public class MowerAction {
         mower.setOrientation(ActionEnum.next(mower.getOrientation(), action));
     }
 
-    public void launchMower(List<ActionEnum> actions) {
+    /**
+     * Pass through the actions and make the mower move with it
+     * @param actions the instructions
+     */
+    void launchMower(List<ActionEnum> actions) {
+        LOG.info("Mower initial position : {} ", mower.toString());
         for(ActionEnum action : actions) {
-            LOG.debug(mower);
             this.analyseAction(action);
+            LOG.info("Mower position : {} ", mower.toString());
         }
-        LOG.debug(mower);
+        LOG.info("Mower final position : {} ", mower.toString());
     }
 }

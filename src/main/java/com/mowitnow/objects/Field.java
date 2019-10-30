@@ -26,14 +26,6 @@ public class Field {
         this.width = width;
     }
 
-    @Override
-    public String toString() {
-        return "Field {" +
-                "length = " + this.length +
-                ", width = " + this.width +
-                '}';
-    }
-
     /**
      * Check if new position X (WestEast axis) is within boundaries
      * @param positionX new position X
@@ -50,5 +42,10 @@ public class Field {
      */
     public boolean checkFieldWidth(int positionY) {
         return (positionY < this.width) && (positionY >= 0);
+    }
+
+    @Override
+    public String toString() {
+        return "(" + (this.length - 1) + ", " + (this.width - 1) + ")";
     }
 }

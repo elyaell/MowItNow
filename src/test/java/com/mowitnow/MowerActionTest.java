@@ -4,6 +4,7 @@ import com.mowitnow.data.ActionEnum;
 import com.mowitnow.data.OrientationEnum;
 import com.mowitnow.objects.Field;
 import com.mowitnow.objects.Mower;
+import com.mowitnow.service.MowerAction;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
