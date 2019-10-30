@@ -6,8 +6,8 @@ public class Field {
     private int width;
 
     public Field(int length, int width) {
-        this.length = length;
-        this.width = width;
+        this.length = length + 1;
+        this.width = width + 1;
     }
 
     public int getLength() {
@@ -34,11 +34,21 @@ public class Field {
                 '}';
     }
 
-    public boolean checkFieldLength(int i) {
-        return (this.length + i < this.length) && (this.length + i >= 0);
+    /**
+     * Check if new position X (WestEast axis) is within boundaries
+     * @param positionX new position X
+     * @return if the position is allowed
+     */
+    public boolean checkFieldLength(int positionX) {
+        return (positionX < this.length) && (positionX >= 0);
     }
 
-    public boolean checkFieldWidth(int i) {
-        return (this.width + i < this.width) && (this.width + i >= 0);
+    /**
+     * Check if new position Y (NorthSouth axis) is within boundaries
+     * @param positionY new position Y
+     * @return if the position is allowed
+     */
+    public boolean checkFieldWidth(int positionY) {
+        return (positionY < this.width) && (positionY >= 0);
     }
 }

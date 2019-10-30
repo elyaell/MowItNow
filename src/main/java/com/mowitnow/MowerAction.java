@@ -24,14 +24,14 @@ public class MowerAction {
     }
 
     private void moveMower() {
-        if (mower.getOrientation().equals(OrientationEnum.N) && field.checkFieldLength(mower.getPositionAxisX() + 1)) {
-            mower.setPositionAxisX(1);
-        } else if (mower.getOrientation().equals(OrientationEnum.S) && field.checkFieldLength(mower.getPositionAxisX() - 1)) {
-            mower.setPositionAxisX(-1);
-        } else if (mower.getOrientation().equals(OrientationEnum.W) && field.checkFieldWidth(mower.getPositionAxisY() - 1)) {
-            mower.setPositionAxisY(-1);
-        } else if (mower.getOrientation().equals(OrientationEnum.E) && field.checkFieldWidth(mower.getPositionAxisY() + 1)) {
-            mower.setPositionAxisY(1);
+        if (mower.getOrientation().equals(OrientationEnum.N) && field.checkFieldWidth(mower.getPositionAxisY() + 1)) {
+            mower.moveTowardNorth();
+        } else if (mower.getOrientation().equals(OrientationEnum.S) && field.checkFieldWidth(mower.getPositionAxisY() - 1)) {
+            mower.moveTowardSouth();
+        } else if (mower.getOrientation().equals(OrientationEnum.W) && field.checkFieldLength(mower.getPositionAxisX() - 1)) {
+            mower.moveTowardWest();
+        } else if (mower.getOrientation().equals(OrientationEnum.E) && field.checkFieldLength(mower.getPositionAxisX() + 1)) {
+            mower.moveTowardEast();
         }
     }
 

@@ -29,6 +29,34 @@ public class Mower {
         this.positionAxisY = positionAxisY;
     }
 
+    /**
+     * North is axis Y ++
+     */
+    public void moveTowardNorth() {
+        this.positionAxisY++;
+    }
+
+    /**
+     * East is axis X ++
+     */
+    public void moveTowardEast() {
+        this.positionAxisX++;
+    }
+
+    /**
+     * West is axis X --
+     */
+    public void moveTowardWest() {
+        this.positionAxisX--;
+    }
+
+    /**
+     * South is axis Y --
+     */
+    public void moveTowardSouth() {
+        this.positionAxisY--;
+    }
+
     public OrientationEnum getOrientation() {
         return orientation;
     }
