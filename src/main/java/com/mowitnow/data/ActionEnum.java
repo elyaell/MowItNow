@@ -1,5 +1,7 @@
 package com.mowitnow.data;
 
+import com.mowitnow.exception.MowItNowException;
+
 public enum ActionEnum {
     A ("Forward"),
     G ("Turn to left"),
@@ -20,13 +22,13 @@ public enum ActionEnum {
      * @param action the action
      * @return {@link ActionEnum}
      */
-    public static ActionEnum parse(char action) {
+    public static ActionEnum parse(char action) throws MowItNowException {
         for (ActionEnum e : ActionEnum.values()) {
             if (e.name().equals(Character.toString(action))) {
                 return e;
             }
         }
-        return null;
+        throw new MowItNowException("Element " + action + " is not a known action");
     }
 
     /**
