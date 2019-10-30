@@ -1,18 +1,29 @@
 package com.mowitnow;
 
-import com.mowitnow.objects.Field;
-import com.mowitnow.objects.Mower;
 import com.mowitnow.data.ActionEnum;
 import com.mowitnow.data.OrientationEnum;
+import com.mowitnow.objects.Field;
+import com.mowitnow.objects.Mower;
+import org.apache.log4j.Logger;
+
+import java.util.List;
 
 public class MowerAction {
+    private final static Logger LOG = Logger.getLogger(MowerAction.class);
 
     private Mower mower;
     private Field field;
+    private List<ActionEnum> actions;
 
     public MowerAction(Mower mower, Field field) {
         this.mower = mower;
         this.field = field;
+    }
+
+    public MowerAction(Mower mower, Field field, List<ActionEnum> actions) {
+        this.mower = mower;
+        this.field = field;
+        this.actions = actions;
     }
 
     /**
@@ -57,5 +68,13 @@ public class MowerAction {
      */
     private void updateOrientation(ActionEnum action) {
         mower.setOrientation(ActionEnum.next(mower.getOrientation(), action));
+    }
+
+    public void launchMower(List<ActionEnum> actions) {
+        for(ActionEnum action : actions) {
+            LOG.debug(mower);
+            this.analyseAction(action);
+        }
+        LOG.debug(mower);
     }
 }

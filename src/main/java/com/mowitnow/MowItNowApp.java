@@ -28,17 +28,10 @@ public class MowItNowApp {
                 OrientationEnum.parse(mowerPosition[2]));
 
         MowerAction mowerAction = new MowerAction(mower, field);
-
-        for(ActionEnum action : actions) {
-            System.out.println(mower);
-            mowerAction.analyseAction(action);
-        }
-
-        System.out.println(mower);
+        mowerAction.launchMower(actions);
     }
 
-
-    public static List<ActionEnum> parse(String linePosition) {
+    private static List<ActionEnum> parse(String linePosition) {
         char[] positions = linePosition.toCharArray();
         List<ActionEnum> positionsEnum = new ArrayList<>();
         ActionEnum action;
