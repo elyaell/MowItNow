@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class MowerAction {
-    private final Logger LOG = LogManager.getLogger(MowerAction.class);
+    private static final Logger LOG = LogManager.getLogger(MowerAction.class);
 
     private Mower mower;
     private Field field;
@@ -69,11 +69,11 @@ public class MowerAction {
      * @param actions the instructions
      */
     void launchMower(List<ActionEnum> actions) {
-        LOG.info("Mower initial position : {} ", mower.toString());
+        LOG.info("Mower initial position : {} ", mower);
         for(ActionEnum action : actions) {
             this.analyseAction(action);
-            LOG.info("Mower position : {} ", mower.toString());
+            LOG.info("Mower position : {} ", mower);
         }
-        LOG.info("Mower final position : {} ", mower.toString());
+        LOG.info("Mower final position : {} ", mower);
     }
 }
