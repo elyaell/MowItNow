@@ -5,21 +5,18 @@ import com.mowitnow.data.OrientationEnum;
 import com.mowitnow.objects.Field;
 import com.mowitnow.objects.Mower;
 import com.mowitnow.service.MowerAction;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(JUnit4.class)
 public class MowerActionTest {
 
     Mower mower;
     Field field;
     MowerAction mowerAction;
 
-    @Before
+    @BeforeAll
     public void setUp() throws Exception {
         mower = new Mower(0, 0, OrientationEnum.N);
         field = new Field(5, 5);
