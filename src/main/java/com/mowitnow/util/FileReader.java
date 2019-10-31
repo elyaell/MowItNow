@@ -18,9 +18,15 @@ import java.util.stream.Stream;
 
 public class FileReader {
     private final Logger LOG = LogManager.getLogger(FileReader.class);
+    private BufferedReader reader;
+
+    public FileReader() {
+        reader = new BufferedReader(new InputStreamReader(System.in));
+    }
 
     /**
      * Load the file and convert the content into a list of lines
+     *
      * @param filename file
      * @return lines of the file
      */
@@ -38,17 +44,20 @@ public class FileReader {
 
     /**
      * Allow the user to choose a file from the list of files
+     *
      * @return the chosen file
      */
     public String chooseFile() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        List<String> files = listingFolderContext();
-        int choice = -1;
+        List<String> files ;
+        do {
+            files = listingFolderContext();
+        } while (files.isEmpty());
+        int choice ;
         do {
             System.out.print("File to process : ");
             try {
                 choice = Integer.parseInt(reader.readLine());
-            } catch (IOException | NumberFormatException e ) {
+            } catch (IOException | NumberFormatException e) {
                 choice = -1;
             }
         } while (choice < 0 || choice >= files.size());
@@ -57,25 +66,36 @@ public class FileReader {
 
     /**
      * List all available files for configuring the mower
+     *
      * @return the list of the files
      */
     private List<String> listingFolderContext() {
         List<String> fileList = new ArrayList<>();
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(ClassLoader.getSystemResource("").toURI()))) {
+        String folderPath = chooseDirectory();
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(ClassLoader.getSystemResource(folderPath).toURI()))) {
             int cpt = 0;
-            System.out.println("Available initializations : ");
+            LOG.info("Available initializations : ");
             for (Path path : stream) {
                 if (!Files.isDirectory(path) && path.getFileName().toString().contains("txt")) {
-                    System.out.println("["+ cpt +"] - " + path.getFileName().toString());
+                    LOG.info("[{}] - {}", cpt, path.getFileName().toString());
                     fileList.add(path.getFileName().toString());
                     cpt++;
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             LOG.error("Error during folder reading", e);
-        } catch (URISyntaxException e) {
-            LOG.error("Folder not found", e);
         }
         return fileList;
+    }
+
+    private String chooseDirectory() {
+        String path = "";
+        System.out.print("Folder with instructions files : ");
+        try {
+            path = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 }

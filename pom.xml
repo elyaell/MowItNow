@@ -17,7 +17,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-			
+
 			<plugin>
 			  <groupId>org.codehaus.mojo</groupId>
 			  <artifactId>exec-maven-plugin</artifactId>
@@ -29,7 +29,7 @@
 		</plugins>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
             </resource>
         </resources>
     </build>
