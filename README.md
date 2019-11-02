@@ -1,11 +1,17 @@
 # MowItNow
 
-Simulation of the movements of a mower on a grid.
+Simulation of the movements of a mower on a field.
 
 ## Getting Started
 
 ``` 
 git clone https://github.com/FaithFeather/MowItNow.git
+```
+
+## Compiling 
+
+``` 
+mvn clean compile
 ```
 
 ## Running 
