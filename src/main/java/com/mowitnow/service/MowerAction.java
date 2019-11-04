@@ -68,12 +68,28 @@ public class MowerAction {
      * Pass through the actions and make the mower move with it
      * @param actions the instructions
      */
-    void launchMower(List<ActionEnum> actions) {
+    public void launchMower(List<ActionEnum> actions) {
         LOG.info("Mower initial position : {} ", mower);
         for(ActionEnum action : actions) {
             this.analyseAction(action);
             LOG.info("Mower position : {} ", mower);
         }
         LOG.info("Mower final position : {} ", mower);
+    }
+
+    public Mower getMower() {
+        return mower;
+    }
+
+    public void setMower(Mower mower) {
+        this.mower = mower;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
     }
 }
