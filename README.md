@@ -27,14 +27,13 @@ mvn exec:java
         * A to go in the direction the mower is facing
         * D to turn to the right
         * G to turn to the left
-* The file can have more than one mower : repeat the second and third lines for each mower.
-* The files need to be in the */src/main/java/resources* folder with a *.txt* extension.
 ```
 5 5
 1 2 N
 GAGAGAGAA
 ```
-
+* The file can have more than one mower : repeat the second and third lines for each mower.
+* The files need to be in the */src/main/java/resources* folder with a *.txt* extension.
 * Once the program is launched, the resources folder will be scanned and the program will display the list of the files available. The user can choose a file between the ones available.
 
 * [IntellijIdea] (https://www.jetbrains.com/idea/)
