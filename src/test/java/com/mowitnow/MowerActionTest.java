@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MowerActionTest {
 
-    Mower mower;
-    Field field;
-    MowerAction mowerAction;
+    private Mower mower;
+    private Field field;
+    private MowerAction mowerAction;
 
     @BeforeAll
-    public void setUp() throws Exception {
+    public void setUp() {
         mower = new Mower(0, 0, OrientationEnum.N);
         field = new Field(5, 5);
         mowerAction = new MowerAction(mower, field);

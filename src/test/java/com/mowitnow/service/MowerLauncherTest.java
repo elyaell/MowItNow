@@ -56,4 +56,9 @@ class MowerLauncherTest {
         MowItNowException thrown = assertThrows(MowItNowException.class, () -> mowerLauncher.parse("EADADGGDADAAA"));
         assertTrue(thrown.getMessage().contains("Element E is not a known action"));
     }
+
+    @Test
+    void launchMower_skip_mower_when_mower_ko() throws MowItNowException {
+        mowerLauncher.launch("mower_5.txt");
+    }
 }
