@@ -31,7 +31,7 @@ public class Field {
      * @param positionX new position X
      * @return if the position is allowed
      */
-    public boolean checkFieldLength(int positionX) {
+    public boolean isInFieldLength(int positionX) {
         return (positionX < this.length) && (positionX >= 0);
     }
 
@@ -40,7 +40,7 @@ public class Field {
      * @param positionY new position Y
      * @return if the position is allowed
      */
-    public boolean checkFieldWidth(int positionY) {
+    public boolean isInFieldWidth(int positionY) {
         return (positionY < this.width) && (positionY >= 0);
     }
 
