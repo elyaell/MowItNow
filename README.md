@@ -28,7 +28,7 @@ mvn exec:java
         * D to turn to the right
         * G to turn to the left
 * The file can have more than one mower : repeat the second and third lines for each mower.
-* The files need to be in the */src/main/java/resources* folder.
+* The files need to be in the */src/main/java/resources* folder with a *.txt* extension.
 ```
 5 5
 1 2 N
