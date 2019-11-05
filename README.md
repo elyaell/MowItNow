@@ -1,4 +1,6 @@
-# MowItNow
+[![Build Status](https://travis-ci.org/FaithFeather/MowItNow.svg?branch=master)](https://travis-ci.org/FaithFeather/MowItNow)
+
+# MowItNow 
 
 Simulation of the movements of a mower on a field.
 
